@@ -1,0 +1,115 @@
+@CHARSET "UTF-8";
+.hidden {
+  visibility: hidden; }
+
+.ime-off {
+  ime-mode: inactive; }
+
+.ime-on {
+  ime-mode: active; }
+
+/*star_white*/
+/*star_white*/
+.white_strong {
+  background-color: #efefe8;
+  color: #44413c; }
+
+.white_weak {
+  background-color: #efefe8;
+  color: #8e918f; }
+
+.blue {
+  background-color: #e2eaeb;
+  color: #44413c; }
+
+.pink {
+  background-color: #eee2dd;
+  color: #44413c; }
+
+.left {
+  display: block;
+  float: left; }
+
+.right {
+  display: block;
+  text-align: right; }
+
+a:hover {
+  text-decoration: underline; }
+
+.S {
+  font-size: 10pt; }
+
+.M {
+  font-size: 14pt; }
+
+.L {
+  font-size: 18pt; }
+
+.round_rect {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px; }
+
+table {
+  border-collapse: collapse;
+  cursor: pointer; }
+  table tr:hover {
+    background-color: #eee2dd; }
+  table td {
+    border: 1px solid #8e918f; }
+
+.key {
+  color: #8e918f; }
+
+.ajax_history_not_received {
+  margin: 1px;
+  background-color: #8e918f;
+  color: #44413c; }
+
+.ajax_history_received {
+  margin: 1px;
+  background-color: #efefe8;
+  color: #8e918f; }
+
+.success_but_not_use_ajax_history {
+  margin: 1px;
+  background-color: #efefe8;
+  color: #44413c; }
+
+.stripe_table {
+  border-collapse: collapse; }
+  .stripe_table tr:nth-child(even) {
+    background-color: #e7e9e7; }
+  .stripe_table td {
+    border: 1px solid #8e918f; }
+
+body {
+  min-height: 940px;
+  height: auto !important;
+  font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #efefe8;
+  color: #8e918f; }
+
+header * {
+  margin: 2;
+  padding: 0;
+  font-size: 14pt; }
+
+nav * {
+  background-color: #e2eaeb;
+  color: #44413c; }
+  nav * img {
+    background-color: #e2eaeb;
+    color: #44413c; }
+
+#main_content {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #efefe8;
+  color: #44413c; }
+
+footer {
+  text-align: center;
+  background-color: #efefe8;
+  color: #8e918f; }
