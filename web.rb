@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  "Hello world! I'm thin with sinatra."
+  "Hello world! I'm thin with sinatra. wooooooooya!"
 end
