@@ -10,7 +10,7 @@ end
 
 get '/api/:cmd/:params/:uid/:passkey' do
   "API..."
-  "#{params[:cmd]},#{params[passkey]}"
+  "#{params[:cmd]},#{params[:passkey]}"
 end
 
 
