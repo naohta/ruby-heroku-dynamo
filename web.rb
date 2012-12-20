@@ -8,7 +8,13 @@ get '/hello/:name' do
   "hello, #{params[:name]}:)"
 end
 
-get '/API/:cmd/:params/:uid/:passkey' do
+get '/api/:cmd/:params/:uid/:passkey' do
   "API..."
-  "#{params[:cmd]}"
+  "#{params[:cmd]},#{params[passkey]}"
+end
+
+
+get '/api/:cmd :uid/' do
+  "API..."
+  "#{params[:cmd]},#{params[:uid]}"
 end
