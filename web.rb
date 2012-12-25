@@ -22,19 +22,60 @@ get '/api/:cmd :uid/' do
   "#{params[:cmd]},#{params[:uid]}"
 end
 
-get '/hi/:name' do
-  "hi, #{params[:name]}:)"
-  
+get '/products/as_html' do
   db = Dynamodb.db
   db.tables.each{|t| puts t.name}
   tbl = db.tables['products']
   tbl.load_schema
   items = tbl.items()
+  s = ""
   items.each{|item|
-    p "-----------------"
-    p item
-    item.attributes.each{|attr| p attr}
+    s += "-----------------<br/>"
+    item.attributes.each{|attr| s += (attr.to_s + "<br/>")}
   }
+  
+  return s
+end
+
+
+def to_j(item) 
+
+  
 
 end
 
+
+get '/products/as_json' do
+  content_type :json
+  db = Dynamodb.db
+  db.tables.each{|t| puts t.name}
+  tbl = db.tables['products']
+  tbl.load_schema
+  items = tbl.items()
+  s = "["
+  items.each{ |item|
+    s += (JSON.generate(item.attributes.to_h) + ",")
+  }
+  s += "]"
+  return s
+end
+
+get '/products/as_json2' do
+  content_type :json
+  db = Dynamodb.db
+  db.tables.each{|t| puts t.name}
+  tbl = db.tables['products']
+  tbl.load_schema
+  items = tbl.items()
+  s = "["
+  
+  first=true; items.each{ |item|
+    if(first) then first=false else s+="," end
+    p "item.attributes", item.attributes
+    p "item.attributes.to_h", item.attributes.to_h
+    p "JSON.generate(item.attributes.to_h)", JSON.generate(item.attributes.to_h)
+    s += JSON.generate(item.attributes.to_h)
+  }
+  s += "]"
+  return s
+end
