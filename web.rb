@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'sinatra'
 require './dynamodb.rb'
 require 'aws/sts'
