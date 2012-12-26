@@ -4,7 +4,7 @@ require 'aws/sts'
 require 'aws/dynamo_db'
 
 get '/' do
-  "Hello world! I'm thin with sinatra. yap!"
+  "Merry Christmas!"
 end
 
 get '/hello/:name' do
