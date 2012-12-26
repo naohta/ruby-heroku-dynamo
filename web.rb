@@ -127,7 +127,6 @@ get '/products/as_json5' do
   
   first=true; items.each{ |item|
     if(first) then first=false else s+="," end
-    s += item.attributes
     item.attributes.each{ |a|
       s += '{"'
       s += a[0]
