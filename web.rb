@@ -109,7 +109,7 @@ get '/products/as_json4' do
     p "item.attributes", item.attributes
     p "item.attributes.to_h", item.attributes.to_h
     p "JSON.generate(item.attributes.to_h)", JSON.generate(item.attributes.to_h)
-    s += item.attributes.to_h
+    s += item.attributes.to_h.to_json
   }
   s += "]"
   return s
