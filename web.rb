@@ -129,7 +129,7 @@ get '/products/as_json5' do
     if(first) then first=false else s+="," end
     item.attributes.each{ |a|
       s += '"'
-      if(a.is_a? BigDecimal) then s += a.to_s("F"); s += "decimal"
+      if(a.typeof(BigDecimal)) then s += a.to_s("F"); s += "decimal"
         else s+= a.to_s end
       s += '",'
     }
