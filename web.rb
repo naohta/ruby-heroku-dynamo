@@ -92,3 +92,48 @@ get '/products/as_json3' do
   s += "]"
   return s
 end
+
+
+
+get '/products/as_json4' do
+  content_type :json
+  db = Dynamodb.db
+  db.tables.each{|t| puts t.name}
+  tbl = db.tables['products']
+  tbl.load_schema
+  items = tbl.items()
+  s = "["
+  
+  first=true; items.each{ |item|
+    if(first) then first=false else s+="," end
+    p "item.attributes", item.attributes
+    p "item.attributes.to_h", item.attributes.to_h
+    p "JSON.generate(item.attributes.to_h)", JSON.generate(item.attributes.to_h)
+    s += item.attributes.to_h
+  }
+  s += "]"
+  return s
+end
+
+
+get '/products/as_json5' do
+  content_type :json
+  db = Dynamodb.db
+  db.tables.each{|t| puts t.name}
+  tbl = db.tables['products']
+  tbl.load_schema
+  items = tbl.items()
+  s = "["
+  
+  first=true; items.each{ |item|
+    if(first) then first=false else s+="," end
+    p "item.attributes", item.attributes
+    p "item.attributes.to_h", item.attributes.to_h
+    p "JSON.generate(item.attributes.to_h)", JSON.generate(item.attributes.to_h)
+    s += item.attributes
+  }
+  s += "]"
+  return s
+end
+
+
