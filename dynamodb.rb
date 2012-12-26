@@ -6,11 +6,10 @@ sw.stop
 
 class Dynamodb
   sw = Stopwatch.new("Create AWS session");
-  secrets = Hash[*File.read('.nao.secrets').split(/[ \n]+/)]
   security_token_service = AWS::STS.new(
-    access_key_id:secrets["aws_access_key_id"],
-    secret_access_key:secrets["aws_secret_access_key"]
-  );secrets = nil;
+    access_key_id:ENV['AWS_KEY'],
+    secret_access_key:ENV['AWS_SECRET']
+  )
   session = security_token_service.new_session(duration:60*30)
   AWS.config({dynamo_db_endpoint:"dynamodb.ap-northeast-1.amazonaws.com"})
   sw.stop
