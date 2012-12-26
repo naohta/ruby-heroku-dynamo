@@ -127,10 +127,14 @@ get '/products/as_json5' do
   
   first=true; items.each{ |item|
     if(first) then first=false else s+="," end
-    p "item.attributes", item.attributes
-    p "item.attributes.to_h", item.attributes.to_h
-    p "JSON.generate(item.attributes.to_h)", JSON.generate(item.attributes.to_h)
     s += item.attributes
+    item.attributes.each{ |a|
+      s += '{"'
+      s += a[0]
+      s += '","'
+      s += a[1]
+      s += '"}'
+    }
   }
   s += "]"
   return s
